@@ -1,0 +1,48 @@
+body{
+    background-color: palevioletred;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button{
+    display: flex;
+    color: white;
+    text-shadow: 2px 2px rgb(160, 159, 159);
+    box-shadow: 2px 2px rgb(160, 159, 159);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: pink;
+    border-radius: 25%;
+    border-color: transparent;
+    height: 70px;
+    width: 150px;
+    margin: 20px;
+}
+
+button:hover{
+    background-color: rgb(248, 166, 179);
+    text-shadow: 2px 2px rgb(77, 76, 76);
+    font-size: 100%;
+    box-shadow: 2px 5px rgb(77, 76, 76);
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+}
+
+.library-details{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
