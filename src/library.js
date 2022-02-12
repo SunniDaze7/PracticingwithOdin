@@ -5,8 +5,6 @@ const bookCards = document.getElementById("book-cards")
 const card = document.getElementById("card")
 const comment = document.getElementById("comment")
 const addBook = document.getElementById("new-book")
-const removeButton = document.getElementById("remove-button")
-//const readBook = document.getElementById("read-book")
 
 let userLibrary = [];
 
@@ -26,7 +24,7 @@ let userLibrary = [];
     displayCard()
     }
  
-    //addBook.addEventListener("click", addTolibrary)
+
     
 let cardNumber = 0;
 
@@ -38,31 +36,33 @@ let cardNumber = 0;
     //comment section for book
         const bookComment = document.createElement('div')
         bookComment.setAttribute("id", "comment")
+        const commentSection = document.createElement('div')
 
         bookCards.appendChild(bookCard)
         bookCards.appendChild(bookComment)
+        bookComment.appendChild(commentSection)
 
            //buttons
            const removeButton = document.createElement("button")
            removeButton.setAttribute("id", "remove-button")
-           //set attribute
-           removeButton.setAttribute("value", "userLibrary[cardNumber]")
            removeButton.innerHTML = "Remove Book"
 
            const readButton = document.createElement("button")
-           //set attribute
            readButton.setAttribute("id", "read-button")
-
-           readButton.innerHTML = "Have Not Read"
-           readButton.setAttribute("value", "userLibrary[cardNumber]")
+           readButton.innerHTML = "I have not read this."
 
     //add info to book card
         bookCard.innerHTML = "Title: " + userLibrary[cardNumber].title +
         "<br/>Author: " + userLibrary[cardNumber].author + "<br/>Words: " + userLibrary[cardNumber].words 
         bookCard.appendChild(removeButton)
+
     //add info to book comment
-        bookComment.innerHTML  = "Comment: " + "<br/>Date Finished: "
+        commentSection.innerHTML  = "Comment: "
+        const dateSection = document.createElement('div')
+        dateSection.setAttribute("id", "date-section")
+        dateSection.innerHTML = "Date Finshed: unfinished"
         bookComment.appendChild(readButton)
+        bookComment.appendChild(dateSection)
 
     //button functionality
         removeButton.addEventListener("click", removeCard)
@@ -70,6 +70,7 @@ let cardNumber = 0;
 
         cardNumber++
 } 
+
 
 //remove a book from interface
  function removeCard(){
@@ -81,18 +82,36 @@ let cardNumber = 0;
 
 //add read status and date for book
  function readBook(){
+    const dateSection = document.getElementById("date-section")
+    const bookComment = document.getElementById("comment")
     const readButton = document.getElementById("read-button")
-    readButton.innerHTML = "Read This"
-    const finishDate = prompt("Great job finishing that book! What date did you finish it?")
-    finishDate
+    //const finishDate = prompt("Great job finishing that book! What date did you finish it?")
+
+
+    dateSection.innerHTML = "Date Finished: " + prompt("Great job finishing that book! What date did you finish it?")
+    bookComment.appendChild(dateSection)
+    readButton.innerHTML = "I read this!"
+    readButton.addEventListener("click", notReadBook)
+    dateSection.setAttribute("id", "no-date-section")
+    readButton.setAttribute("id", "not-read-button")
  }
+
+ //add not read status and remove date
+  function notReadBook(){
+    const readButton = document.getElementById("not-read-button")
+    const dateSection = document.getElementById("no-date-section")
+
+    readButton.innerHTML = "I have not read this."
+    dateSection.innerHTML = "Date Finshed: unfinished"
+    readButton.addEventListener("click", readBook)
+    readButton.setAttribute("id", "read-button")
+    dateSection.setAttribute("id", "date-section")
+  } 
 
 
 
 
 addBook.addEventListener("click", addTolibrary)
-//readButton.addEventListener("click", readBook)
-//removeButton.addEventListener("click", removeCard)
 
 
 
