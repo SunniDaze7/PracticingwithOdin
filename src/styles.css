@@ -53,11 +53,6 @@ button:hover{
     color: white;
 }
 
-.book-cards{
-    display: flex;
-    justify-content: column;
-}
-
 #card{
     display: flex;
     flex-direction: column;
@@ -66,10 +61,10 @@ button:hover{
     flex-wrap: wrap;
     padding: 10px;
     margin: 30px;
-    width: 45%;
+    width: 40%;
     height: 200px;
     background-color: lightblue;
-    box-shadow: 2px 2px rgb(241, 129, 148);
+    box-shadow: 5px 5px rgb(241, 129, 148);
 }
 
 #comment{
@@ -80,8 +75,8 @@ button:hover{
     flex-wrap: wrap;
     padding: 10px;
     margin: 30px;
-    width: 45%;
+    width: 40%;
     height: 200px;
     background-color: lightblue;
-    box-shadow: 2px 2px rgb(241, 129, 148);
+    box-shadow: 5px 5px rgb(241, 129, 148);
 }
