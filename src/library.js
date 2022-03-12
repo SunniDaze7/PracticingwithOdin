@@ -58,6 +58,10 @@ let cardNumber = 0;
            readButton.setAttribute("id", "read-button")
            readButton.innerHTML = "I have not read this."
 
+           const commentButton = document.createElement("button")
+           commentButton.setAttribute("id", "comment-button")
+           commentButton.innerHTML = "Add Comment"
+
     //add info to book card
         bookCard.innerHTML = "Title: " + userLibrary[cardNumber].title +
         "<br/>Author: " + userLibrary[cardNumber].author + "<br/>Words: " + userLibrary[cardNumber].words 
@@ -71,37 +75,30 @@ let cardNumber = 0;
         dateSection.innerHTML = "Date Finished: " + userLibrary[cardNumber].date
         bookComment.appendChild(commentSection)
         bookComment.appendChild(readButton)
+        bookComment.appendChild(commentButton)
         bookComment.appendChild(dateSection)
 
 
-    //remove button functionality
+    //removeButton functionality
         removeButton.addEventListener("click", function removeCard(){
-        bookCardSection = bookCardSection.dataset.number
-        bookCardSection.remove()
+            bookCardSection.remove()
         })
 
+    //removeButton functionality
+        commentButton.addEventListener("click", function commentCard(){
+        commentSection.innerHTML = "Comment: " + prompt("What comment would you like to add for this book?")
+         })
 
-        readButton.addEventListener("click", readBook)
+  //add/remove read status and date for book
+        readButton.addEventListener("click", function readBook(){
+        dateSection.innerHTML = "Date Finished: " + prompt("Congratulations finishing that book! What date did you finish it?")
+        readButton.innerHTML = "I read this!"
+     })
 
         cardNumber++
 } 
 
 
-//add/remove read status and date for book
- function readBook(){
-    const dateSection = document.getElementById("date-section")
-    const bookComment = document.getElementById("comment")
-    const readButton = document.getElementById("read-button")
-
-    bookComment.appendChild(dateSection)
-    dateSection.innerHTML = "Date Finished: " + prompt("Congratulations finishing that book! What date did you finish it?")
-    readButton.innerHTML = "I read this!"
-    readButton.addEventListener("click", function notReadBook(){
-    readButton.innerHTML = "I have not read this."
-    bookComment.appendChild(dateSection)
-    dateSection.innerHTML = "Date Finished: unfinished"
-    })
- }
 
 
 addBook.addEventListener("click", addTolibrary)
